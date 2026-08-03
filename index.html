@@ -6,7 +6,7 @@
 <title>Saffi — Le lavage auto à la demande, à Agadir</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#10344F;
@@ -239,6 +239,29 @@
   .price-card:hover{transform:translateY(-4px); box-shadow:0 18px 36px -16px rgba(16,52,79,0.22); border-color:rgba(14,165,201,0.35);}
   .how-step{transition:background .25s ease;}
   .how-step:hover{background:#FBF8F2;}
+
+  /* ===== SÉLECTEUR DE LANGUE ===== */
+  .lang-switch{display:flex; gap:4px; background:rgba(16,52,79,0.06); padding:4px; border-radius:100px;}
+  .lang-btn{
+    font-family:var(--font-mono); font-size:11.5px; font-weight:600; letter-spacing:0.03em;
+    padding:7px 13px; border-radius:100px; background:transparent; color:rgba(19,36,48,0.55);
+    border:none; cursor:pointer; transition:background .18s ease, color .18s ease;
+  }
+  .lang-btn.active{background:var(--navy); color:var(--white);}
+  .lang-btn:not(.active):hover{color:var(--navy);}
+  .nav-right{display:flex; align-items:center; gap:14px;}
+
+  /* ===== MODE ARABE (RTL) ===== */
+  html[dir="rtl"] body, html[dir="rtl"] .eyebrow, html[dir="rtl"] .hero-title,
+  html[dir="rtl"] .section-title, html[dir="rtl"] .pilot h2, html[dir="rtl"] .final h2,
+  html[dir="rtl"] .nav-brand, html[dir="rtl"] .price-card .name, html[dir="rtl"] .how-step h3{
+    font-family:'Noto Kufi Arabic', var(--font-body);
+  }
+  html[dir="rtl"] .hero-title em{font-style:normal;}
+  html[dir="rtl"] .scroll-cue, html[dir="rtl"] .hero-note, html[dir="rtl"] .how-num,
+  html[dir="rtl"] .pilot-badge, html[dir="rtl"] .foot-note{
+    font-family:'Noto Kufi Arabic', var(--font-mono); letter-spacing:0;
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
@@ -246,54 +269,62 @@
 
 <nav class="nav">
   <div class="nav-brand"><div class="nav-mark">S</div>Saffi</div>
-  <a class="nav-cta" href="#contact">Nous contacter</a>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="ar" title="العربية الفصحى">AR</button>
+      <button class="lang-btn" data-lang="dar" title="الدارجة المغربية">DAR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a class="nav-cta" href="#contact" data-i18n="nav.contact">Nous contacter</a>
+  </div>
 </nav>
 
 <!-- HERO SPLIT -->
 <header class="hero">
   <div class="hero-half hero-client">
-    <div class="hero-eyebrow eyebrow">Pour les automobilistes</div>
-    <h1 class="hero-title">Votre voiture,<br><em>propre</em> sans y penser.</h1>
-    <p class="hero-sub">Réservez un lavage en station partenaire ou à domicile, à Agadir, en moins de deux minutes depuis votre téléphone.</p>
-    <a class="hero-cta" href="#contact">Essayer Saffi →</a>
-    <div class="hero-note">DISPONIBLE EN PHASE PILOTE — AGADIR</div>
+    <div class="hero-eyebrow eyebrow" data-i18n="hero.client.eyebrow">Pour les automobilistes</div>
+    <h1 class="hero-title" data-i18n="hero.client.title">Votre voiture,<br><em>propre</em> sans y penser.</h1>
+    <p class="hero-sub" data-i18n="hero.client.sub">Réservez un lavage en station partenaire ou à domicile, à Agadir, en moins de deux minutes depuis votre téléphone.</p>
+    <a class="hero-cta" href="#contact" data-i18n="hero.client.cta">Essayer Saffi →</a>
+    <div class="hero-note" data-i18n="hero.client.note">DISPONIBLE EN PHASE PILOTE — AGADIR</div>
   </div>
 
   <div class="hero-seam"></div>
   <div class="seam-mark"><span>S</span></div>
 
   <div class="hero-half hero-pro">
-    <div class="hero-eyebrow eyebrow">Pour les prestataires</div>
-    <h1 class="hero-title">Vos heures creuses,<br><em>rentabilisées</em>.</h1>
-    <p class="hero-sub">Recevez des clients supplémentaires sur votre téléphone, sans abonnement ni frais fixe — vous gardez le contrôle de votre activité.</p>
-    <a class="hero-cta" href="#contact">Devenir partenaire →</a>
-    <div class="hero-note">ZÉRO ABONNEMENT · ZÉRO FRAIS FIXE</div>
+    <div class="hero-eyebrow eyebrow" data-i18n="hero.pro.eyebrow">Pour les prestataires</div>
+    <h1 class="hero-title" data-i18n="hero.pro.title">Vos heures creuses,<br><em>rentabilisées</em>.</h1>
+    <p class="hero-sub" data-i18n="hero.pro.sub">Recevez des clients supplémentaires sur votre téléphone, sans abonnement ni frais fixe — vous gardez le contrôle de votre activité.</p>
+    <a class="hero-cta" href="#contact" data-i18n="hero.pro.cta">Devenir partenaire →</a>
+    <div class="hero-note" data-i18n="hero.pro.note">ZÉRO ABONNEMENT · ZÉRO FRAIS FIXE</div>
   </div>
 
-  <div class="scroll-cue">↓ Comment ça marche</div>
+  <div class="scroll-cue" data-i18n="hero.scroll">↓ Comment ça marche</div>
 </header>
 
 <!-- COMMENT CA MARCHE -->
 <section class="how" id="comment">
   <div class="section-head">
-    <div class="section-eyebrow eyebrow">Le principe</div>
-    <h2 class="section-title">Un lavage réservé en trois gestes</h2>
+    <div class="section-eyebrow eyebrow" data-i18n="how.eyebrow">Le principe</div>
+    <h2 class="section-title" data-i18n="how.title">Un lavage réservé en trois gestes</h2>
   </div>
   <div class="how-steps">
     <div class="how-step reveal">
-      <div class="how-num">01 — RÉSERVER</div>
-      <h3>Choisissez votre créneau</h3>
-      <p>En station ou à domicile, sélectionnez la formule qui vous convient et l'heure qui vous arrange.</p>
+      <div class="how-num" data-i18n="how.step1.num">01 — RÉSERVER</div>
+      <h3 data-i18n="how.step1.title">Choisissez votre créneau</h3>
+      <p data-i18n="how.step1.desc">En station ou à domicile, sélectionnez la formule qui vous convient et l'heure qui vous arrange.</p>
     </div>
     <div class="how-step reveal">
-      <div class="how-num">02 — SUIVRE</div>
-      <h3>En temps réel</h3>
-      <p>Un prestataire accepte votre demande et vous suivez chaque étape du lavage depuis l'application.</p>
+      <div class="how-num" data-i18n="how.step2.num">02 — SUIVRE</div>
+      <h3 data-i18n="how.step2.title">En temps réel</h3>
+      <p data-i18n="how.step2.desc">Un prestataire accepte votre demande et vous suivez chaque étape du lavage depuis l'application.</p>
     </div>
     <div class="how-step reveal">
-      <div class="how-num">03 — PAYER</div>
-      <h3>Sur place, simplement</h3>
-      <p>Vous réglez directement le prestataire une fois le lavage terminé. Aucune surprise sur le prix.</p>
+      <div class="how-num" data-i18n="how.step3.num">03 — PAYER</div>
+      <h3 data-i18n="how.step3.title">Sur place, simplement</h3>
+      <p data-i18n="how.step3.desc">Vous réglez directement le prestataire une fois le lavage terminé. Aucune surprise sur le prix.</p>
     </div>
   </div>
 </section>
@@ -301,38 +332,38 @@
 <!-- PILOTE -->
 <section class="pilot">
   <div class="pilot-inner reveal">
-    <div class="pilot-badge"><span class="pilot-dot"></span>PHASE PILOTE EN COURS</div>
-    <h2>On construit Saffi avec les premiers utilisateurs, pas pour eux.</h2>
-    <p>Le projet est actuellement testé auprès d'un cercle restreint à Agadir. Chaque retour compte pour façonner un service qui répond vraiment aux besoins du terrain — automobilistes comme laveurs.</p>
+    <div class="pilot-badge"><span class="pilot-dot"></span><span data-i18n="pilot.badge">PHASE PILOTE EN COURS</span></div>
+    <h2 data-i18n="pilot.title">On construit Saffi avec les premiers utilisateurs, pas pour eux.</h2>
+    <p data-i18n="pilot.text">Le projet est actuellement testé auprès d'un cercle restreint à Agadir. Chaque retour compte pour façonner un service qui répond vraiment aux besoins du terrain — automobilistes comme laveurs.</p>
   </div>
 </section>
 
 <!-- TARIFS -->
 <section class="pricing" id="tarifs">
   <div class="section-head">
-    <div class="section-eyebrow eyebrow">Formules indicatives</div>
-    <h2 class="section-title">Des prix clairs, sans surprise</h2>
+    <div class="section-eyebrow eyebrow" data-i18n="pricing.eyebrow">Formules indicatives</div>
+    <h2 class="section-title" data-i18n="pricing.title">Des prix clairs, sans surprise</h2>
   </div>
   <div class="price-grid">
     <div class="price-card reveal">
-      <div class="name">Lavage extérieur</div>
-      <div class="desc">Carrosserie, jantes, vitres</div>
-      <div class="amount">60 DH</div>
+      <div class="name" data-i18n="price1.name">Lavage extérieur</div>
+      <div class="desc" data-i18n="price1.desc">Carrosserie, jantes, vitres</div>
+      <div class="amount" data-amount="60">60 DH</div>
     </div>
     <div class="price-card reveal">
-      <div class="name">Lavage intérieur</div>
-      <div class="desc">Aspiration, tableau de bord</div>
-      <div class="amount">80 DH</div>
+      <div class="name" data-i18n="price2.name">Lavage intérieur</div>
+      <div class="desc" data-i18n="price2.desc">Aspiration, tableau de bord</div>
+      <div class="amount" data-amount="80">80 DH</div>
     </div>
     <div class="price-card reveal">
-      <div class="name">Formule complète</div>
-      <div class="desc">Intérieur + extérieur</div>
-      <div class="amount">120 DH</div>
+      <div class="name" data-i18n="price3.name">Formule complète</div>
+      <div class="desc" data-i18n="price3.desc">Intérieur + extérieur</div>
+      <div class="amount" data-amount="120">120 DH</div>
     </div>
     <div class="price-card reveal">
-      <div class="name">Full Detailing</div>
-      <div class="desc">Polissage, sièges, moteur</div>
-      <div class="amount">450 DH</div>
+      <div class="name" data-i18n="price4.name">Full Detailing</div>
+      <div class="desc" data-i18n="price4.desc">Polissage, sièges, moteur</div>
+      <div class="amount" data-amount="450">450 DH</div>
     </div>
   </div>
 </section>
@@ -340,18 +371,224 @@
 <!-- CTA FINAL -->
 <section class="final" id="contact">
   <div class="final-mark reveal"><span>S</span></div>
-  <h2 class="reveal">Envie d'en faire partie ?</h2>
-  <p class="reveal">Automobiliste curieux ou laveur intéressé — écrivez-nous directement, on répond personnellement à chaque message.</p>
+  <h2 class="reveal" data-i18n="final.title">Envie d'en faire partie ?</h2>
+  <p class="reveal" data-i18n="final.text">Automobiliste curieux ou laveur intéressé — écrivez-nous directement, on répond personnellement à chaque message.</p>
   <div class="final-actions reveal">
-    <a class="btn btn-primary" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Saffi" target="_blank" rel="noopener">WhatsApp — +212 6XX XXX XXX</a>
-    <a class="btn btn-ghost" href="#comment">Revoir le principe</a>
+    <a class="btn btn-primary" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Saffi" target="_blank" rel="noopener"><span data-i18n="final.whatsapp">WhatsApp — +212 6XX XXX XXX</span></a>
+    <a class="btn btn-ghost" href="#comment" data-i18n="final.review">Revoir le principe</a>
   </div>
 </section>
 
 <footer>
   <div class="foot-brand">Saffi</div>
-  <div class="foot-note">LE LAVAGE AUTO, EN DEUX TAPES — AGADIR, MAROC</div>
+  <div class="foot-note" data-i18n="footer.note">LE LAVAGE AUTO, EN DEUX TAPES — AGADIR, MAROC</div>
 </footer>
+
+<script>
+var SAFFI_I18N = {
+  fr: {
+    "nav.contact": "Nous contacter",
+    "hero.client.eyebrow": "Pour les automobilistes",
+    "hero.client.title": "Votre voiture,<br><em>propre</em> sans y penser.",
+    "hero.client.sub": "Réservez un lavage en station partenaire ou à domicile, à Agadir, en moins de deux minutes depuis votre téléphone.",
+    "hero.client.cta": "Essayer Saffi →",
+    "hero.client.note": "DISPONIBLE EN PHASE PILOTE — AGADIR",
+    "hero.pro.eyebrow": "Pour les prestataires",
+    "hero.pro.title": "Vos heures creuses,<br><em>rentabilisées</em>.",
+    "hero.pro.sub": "Recevez des clients supplémentaires sur votre téléphone, sans abonnement ni frais fixe — vous gardez le contrôle de votre activité.",
+    "hero.pro.cta": "Devenir partenaire →",
+    "hero.pro.note": "ZÉRO ABONNEMENT · ZÉRO FRAIS FIXE",
+    "hero.scroll": "↓ Comment ça marche",
+    "how.eyebrow": "Le principe",
+    "how.title": "Un lavage réservé en trois gestes",
+    "how.step1.num": "01 — RÉSERVER",
+    "how.step1.title": "Choisissez votre créneau",
+    "how.step1.desc": "En station ou à domicile, sélectionnez la formule qui vous convient et l'heure qui vous arrange.",
+    "how.step2.num": "02 — SUIVRE",
+    "how.step2.title": "En temps réel",
+    "how.step2.desc": "Un prestataire accepte votre demande et vous suivez chaque étape du lavage depuis l'application.",
+    "how.step3.num": "03 — PAYER",
+    "how.step3.title": "Sur place, simplement",
+    "how.step3.desc": "Vous réglez directement le prestataire une fois le lavage terminé. Aucune surprise sur le prix.",
+    "pilot.badge": "PHASE PILOTE EN COURS",
+    "pilot.title": "On construit Saffi avec les premiers utilisateurs, pas pour eux.",
+    "pilot.text": "Le projet est actuellement testé auprès d'un cercle restreint à Agadir. Chaque retour compte pour façonner un service qui répond vraiment aux besoins du terrain — automobilistes comme laveurs.",
+    "pricing.eyebrow": "Formules indicatives",
+    "pricing.title": "Des prix clairs, sans surprise",
+    "price1.name": "Lavage extérieur", "price1.desc": "Carrosserie, jantes, vitres",
+    "price2.name": "Lavage intérieur", "price2.desc": "Aspiration, tableau de bord",
+    "price3.name": "Formule complète", "price3.desc": "Intérieur + extérieur",
+    "price4.name": "Full Detailing", "price4.desc": "Polissage, sièges, moteur",
+    "final.title": "Envie d'en faire partie ?",
+    "final.text": "Automobiliste curieux ou laveur intéressé — écrivez-nous directement, on répond personnellement à chaque message.",
+    "final.whatsapp": "WhatsApp — +212 6XX XXX XXX",
+    "final.review": "Revoir le principe",
+    "footer.note": "LE LAVAGE AUTO, EN DEUX TAPES — AGADIR, MAROC"
+  },
+  en: {
+    "nav.contact": "Contact us",
+    "hero.client.eyebrow": "For drivers",
+    "hero.client.title": "Your car,<br><em>clean</em> without the hassle.",
+    "hero.client.sub": "Book a wash at a partner station or at home, in Agadir, in under two minutes from your phone.",
+    "hero.client.cta": "Try Saffi →",
+    "hero.client.note": "AVAILABLE IN PILOT PHASE — AGADIR",
+    "hero.pro.eyebrow": "For providers",
+    "hero.pro.title": "Your downtime,<br><em>turned into income</em>.",
+    "hero.pro.sub": "Get extra customers on your phone, no subscription, no fixed fees — you stay in control of your business.",
+    "hero.pro.cta": "Become a partner →",
+    "hero.pro.note": "NO SUBSCRIPTION · NO FIXED FEES",
+    "hero.scroll": "↓ How it works",
+    "how.eyebrow": "The principle",
+    "how.title": "A wash booked in three steps",
+    "how.step1.num": "01 — BOOK",
+    "how.step1.title": "Choose your slot",
+    "how.step1.desc": "At a station or at home, pick the formula that suits you and a time that works.",
+    "how.step2.num": "02 — TRACK",
+    "how.step2.title": "In real time",
+    "how.step2.desc": "A provider accepts your request and you follow every step of the wash from the app.",
+    "how.step3.num": "03 — PAY",
+    "how.step3.title": "On the spot, simply",
+    "how.step3.desc": "You pay the provider directly once the wash is done. No surprises on price.",
+    "pilot.badge": "PILOT PHASE UNDERWAY",
+    "pilot.title": "We're building Saffi with the first users, not for them.",
+    "pilot.text": "The project is currently being tested with a small circle in Agadir. Every piece of feedback shapes a service that truly fits the field — for drivers and washers alike.",
+    "pricing.eyebrow": "Indicative pricing",
+    "pricing.title": "Clear prices, no surprises",
+    "price1.name": "Exterior wash", "price1.desc": "Body, wheels, windows",
+    "price2.name": "Interior wash", "price2.desc": "Vacuuming, dashboard",
+    "price3.name": "Full package", "price3.desc": "Interior + exterior",
+    "price4.name": "Full Detailing", "price4.desc": "Polish, seats, engine",
+    "final.title": "Want to be part of it?",
+    "final.text": "Curious driver or interested washer — write to us directly, we personally reply to every message.",
+    "final.whatsapp": "Message us on WhatsApp",
+    "final.review": "Review the principle",
+    "footer.note": "CAR WASH, IN TWO TAPS — AGADIR, MOROCCO"
+  },
+  ar: {
+    "nav.contact": "تواصل معنا",
+    "hero.client.eyebrow": "للسائقين",
+    "hero.client.title": "سيارتك نظيفة،<br><em>دون عناء</em>.",
+    "hero.client.sub": "احجز عملية غسيل في محطة شريكة أو في منزلك، بأكادير، في أقل من دقيقتين من هاتفك.",
+    "hero.client.cta": "← جرّب Saffi",
+    "hero.client.note": "متوفر في المرحلة التجريبية — أكادير",
+    "hero.pro.eyebrow": "لمقدمي الخدمة",
+    "hero.pro.title": "أوقات فراغك،<br><em>مصدر دخل</em>.",
+    "hero.pro.sub": "احصل على عملاء إضافيين عبر هاتفك، دون اشتراك ولا رسوم ثابتة — وتبقى القرارات بيدك.",
+    "hero.pro.cta": "← كن شريكاً",
+    "hero.pro.note": "بلا اشتراك · بلا رسوم ثابتة",
+    "hero.scroll": "كيف يعمل التطبيق ↓",
+    "how.eyebrow": "المبدأ",
+    "how.title": "عملية غسيل تُحجز في ثلاث خطوات",
+    "how.step1.num": "٠١ — احجز",
+    "how.step1.title": "اختر موعدك",
+    "how.step1.desc": "في المحطة أو في المنزل، اختر الباقة التي تناسبك والوقت الذي يلائمك.",
+    "how.step2.num": "٠٢ — تابع",
+    "how.step2.title": "في الوقت الفعلي",
+    "how.step2.desc": "يقبل أحد مقدمي الخدمة طلبك، وتتابع كل مرحلة من مراحل الغسيل عبر التطبيق.",
+    "how.step3.num": "٠٣ — ادفع",
+    "how.step3.title": "في عين المكان، ببساطة",
+    "how.step3.desc": "تدفع لمقدم الخدمة مباشرة بعد انتهاء الغسيل. لا مفاجآت في السعر.",
+    "pilot.badge": "المرحلة التجريبية جارية",
+    "pilot.title": "نبني Saffi مع أوائل المستخدمين، لا من أجلهم فقط.",
+    "pilot.text": "يُختبر المشروع حالياً مع مجموعة محدودة في أكادير. كل ملاحظة تساهم في بناء خدمة تلبي فعلاً احتياجات الميدان — للسائقين ومقدمي الخدمة على حد سواء.",
+    "pricing.eyebrow": "أسعار إرشادية",
+    "pricing.title": "أسعار واضحة، بلا مفاجآت",
+    "price1.name": "غسيل خارجي", "price1.desc": "الهيكل، الجنوط، الزجاج",
+    "price2.name": "غسيل داخلي", "price2.desc": "شفط الغبار، لوحة القيادة",
+    "price3.name": "الباقة الكاملة", "price3.desc": "داخلي + خارجي",
+    "price4.name": "تلميع شامل (Full Detailing)", "price4.desc": "تلميع، المقاعد، المحرك",
+    "final.title": "تريد الانضمام إلينا؟",
+    "final.text": "سائق فضولي أو عامل غسيل مهتم — راسلنا مباشرة، نرد شخصياً على كل رسالة.",
+    "final.whatsapp": "راسلنا عبر واتساب",
+    "final.review": "مراجعة المبدأ",
+    "footer.note": "غسيل السيارات، في خطوتين — أكادير، المغرب"
+  },
+  dar: {
+    "nav.contact": "تواصل معنا",
+    "hero.client.eyebrow": "للي عندهم طوموبيل",
+    "hero.client.title": "الطوموبيل ديالك،<br><em>نقية</em> بلا ما تقلق.",
+    "hero.client.sub": "احجز غسيل فمحطة شريكة ولا فدارك، فأكادير، فأقل من جوج دقايق من التيليفون ديالك.",
+    "hero.client.cta": "← جرب Saffi",
+    "hero.client.note": "متوفر فمرحلة التجربة — أكادير",
+    "hero.pro.eyebrow": "للمهنيين ديال الغسيل",
+    "hero.pro.title": "الوقت الفارغ ديالك،<br><em>ربح فيه</em>.",
+    "hero.pro.sub": "توصلك طلبات زيادة فالتيليفون، بلا اشتراك ولا تكاليف ثابتة — نتا لي فيدك القرار.",
+    "hero.pro.cta": "← كون شريك",
+    "hero.pro.note": "بلا اشتراك · بلا تكاليف ثابتة",
+    "hero.scroll": "كيفاش كيخدم ↓",
+    "how.eyebrow": "المبدأ",
+    "how.title": "غسيل محجوز فتلت خطوات",
+    "how.step1.num": "٠١ — احجز",
+    "how.step1.title": "ختار الوقت ديالك",
+    "how.step1.desc": "فالمحطة ولا فالدار، ختار الفورمول لي يعجبك والوقت لي يناسبك.",
+    "how.step2.num": "٠٢ — تبع",
+    "how.step2.title": "فالوقت الحقيقي",
+    "how.step2.desc": "واحد المهني كيقبل الطلب ديالك وتتبع كل خطوة ديال الغسيل من التطبيق.",
+    "how.step3.num": "٠٣ — خلص",
+    "how.step3.title": "فعين المكان، بسيط",
+    "how.step3.desc": "تخلص المهني مباشرة من بعد ما يكمل الغسيل. بلا مفاجآت فالتمن.",
+    "pilot.badge": "مرحلة التجربة جارية",
+    "pilot.title": "كنبنيو Saffi مع أول المستخدمين، ماشي غيرليهم.",
+    "pilot.text": "المشروع كيتجرب دابا مع مجموعة صغيرة فأكادير. كل رأي كيهمنا باش نبنيو خدمة كتجاوب بصح على حاجيات الميدان — السائقين والمهنيين بجوج.",
+    "pricing.eyebrow": "الأتمنة",
+    "pricing.title": "أتمنة واضحة، بلا مفاجآت",
+    "price1.name": "غسيل من برا", "price1.desc": "الكاروسري، الجونط، الزجاج",
+    "price2.name": "غسيل من دخل", "price2.desc": "شفط الغبرة، الطابلو",
+    "price3.name": "الفورمول الكاملة", "price3.desc": "من دخل + من برا",
+    "price4.name": "Full Detailing", "price4.desc": "تلميع، الكراسي، الموطور",
+    "final.title": "بغيتي تكون معانا؟",
+    "final.text": "واش نتا سائق ولا مهني فالغسيل — كتبلنا مباشرة، كنجاوبو بصح على كل رسالة.",
+    "final.whatsapp": "كتب لينا فWhatsApp",
+    "final.review": "شوف المبدأ مرة أخرى",
+    "footer.note": "غسيل الطوموبيل، فجوج خطوات — أكادير، المغرب"
+  }
+};
+
+function saffiApplyLanguage(lang, animated){
+  var dict = SAFFI_I18N[lang] || SAFFI_I18N.fr;
+  var nodes = document.querySelectorAll('[data-i18n]');
+
+  function swap(){
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', (lang === 'ar' || lang === 'dar') ? 'rtl' : 'ltr');
+    nodes.forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('saffi_lang', lang); } catch(e){}
+  }
+
+  // Petit fondu au changement (pas au tout premier chargement) : évite un
+  // remplacement de texte trop brutal, surtout au passage en arabe (RTL).
+  if (animated && typeof anime !== 'undefined') {
+    anime({
+      targets: nodes,
+      opacity: [1, 0],
+      duration: 140,
+      easing: 'easeInQuad',
+      complete: function(){
+        swap();
+        anime({ targets: nodes, opacity: [0, 1], duration: 220, easing: 'easeOutQuad' });
+      }
+    });
+  } else {
+    swap();
+  }
+}
+
+document.querySelectorAll('.lang-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){ saffiApplyLanguage(btn.getAttribute('data-lang'), true); });
+});
+
+(function(){
+  var saved = null;
+  try { saved = localStorage.getItem('saffi_lang'); } catch(e){}
+  if (saved && SAFFI_I18N[saved]) saffiApplyLanguage(saved, false);
+})();
+</script>
 
 <script>
 (function(){
@@ -404,6 +641,56 @@
   }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  /* ---- Prix qui comptent jusqu'à leur valeur, au scroll ---- */
+  var priceObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      priceObserver.unobserve(entry.target);
+      var el = entry.target;
+      var target = parseInt(el.getAttribute('data-amount'), 10);
+      var counter = { val: 0 };
+      anime({
+        targets: counter,
+        val: target,
+        duration: 900,
+        delay: 150,
+        round: 1,
+        easing: 'easeOutCubic',
+        update: function(){ el.textContent = counter.val + ' DH'; }
+      });
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.price-card .amount[data-amount]').forEach(function(el){ priceObserver.observe(el); });
+
+  /* ---- Pouls discret du badge "phase pilote" (signal live, cohérent avec
+     l'app : même logique que le statut "En service" côté Pro) ---- */
+  anime({
+    targets: '.pilot-dot',
+    scale: [1, 1.7],
+    opacity: [1, 0.35],
+    duration: 1100,
+    easing: 'easeOutSine',
+    direction: 'alternate',
+    loop: true
+  });
+
+  /* ---- Rappel visuel unique sur le bouton WhatsApp, une fois visible ---- */
+  var ctaObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      ctaObserver.unobserve(entry.target);
+      anime({
+        targets: entry.target,
+        scale: [1, 1.045, 1],
+        duration: 900,
+        delay: 500,
+        easing: 'easeInOutQuad'
+      });
+    });
+  }, { threshold: 0.6 });
+  var whatsappBtn = document.querySelector('.final .btn-primary');
+  if (whatsappBtn) ctaObserver.observe(whatsappBtn);
 })();
 </script>
 </body>
