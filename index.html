@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saffi — Le lavage auto à la demande, à Agadir</title>
+<title>Washr — Le lavage auto à la demande, à Agadir</title>
+<link rel="icon" type="image/png" href="washr-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -51,7 +52,8 @@
     border-bottom:1px solid rgba(19,36,48,0.08);
   }
   .nav-brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:20px; color:var(--navy);}
-  .nav-mark{width:30px; height:30px; border-radius:8px; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:17px;}
+  .nav-mark{width:30px; height:30px; border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center;}
+  .nav-mark img{width:100%; height:100%; object-fit:cover;}
   .nav-cta{
     font-size:13px; font-weight:700; padding:10px 20px; border-radius:100px;
     background:var(--navy); color:var(--white);
@@ -81,15 +83,6 @@
     background:linear-gradient(180deg, transparent, rgba(14,165,201,0.5), transparent);
     z-index:5;
   }
-  .seam-mark{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    z-index:10;
-    width:84px; height:84px; border-radius:22px;
-    background:var(--cyan);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 20px 50px -12px rgba(14,165,201,0.55), 0 0 0 8px rgba(242,232,214,0.9);
-  }
-  .seam-mark span{font-family:var(--font-display); font-weight:800; font-size:38px; color:var(--white);}
 
   .hero-eyebrow{color:var(--cyan); margin-bottom:18px;}
   .hero-pro .hero-eyebrow{color:var(--cyan-bright);}
@@ -129,7 +122,6 @@
     .hero{flex-direction:column;}
     .hero-half{min-height:auto; padding:110px 24px 64px;}
     .hero-seam{display:none;}
-    .seam-mark{top:100%; left:50%; box-shadow:0 12px 30px -10px rgba(14,165,201,0.6), 0 0 0 6px var(--sand);}
     .hero-title{max-width:100%;}
     .hero-sub{max-width:100%;}
     .scroll-cue{display:none;}
@@ -199,10 +191,10 @@
     background:var(--white); text-align:center;
   }
   .final-mark{
-    width:64px; height:64px; border-radius:18px; background:var(--navy);
+    width:64px; height:64px; border-radius:18px; overflow:hidden;
     display:flex; align-items:center; justify-content:center; margin:0 auto 28px;
   }
-  .final-mark span{font-family:var(--font-display); font-weight:800; font-size:30px; color:var(--cyan);}
+  .final-mark img{width:100%; height:100%; object-fit:cover;}
   .final h2{
     font-family:var(--font-display); font-weight:700;
     font-size:clamp(26px,3.4vw,40px); color:var(--navy); max-width:560px; margin:0 auto 18px;
@@ -268,7 +260,7 @@
 <body>
 
 <nav class="nav">
-  <div class="nav-brand"><div class="nav-mark">S</div>Saffi</div>
+  <div class="nav-brand"><div class="nav-mark"><img src="washr-logo.png" alt="Washr"></div>Washr</div>
   <div class="nav-right">
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="fr">FR</button>
@@ -286,12 +278,11 @@
     <div class="hero-eyebrow eyebrow" data-i18n="hero.client.eyebrow">Pour les automobilistes</div>
     <h1 class="hero-title" data-i18n="hero.client.title">Votre voiture,<br><em>propre</em> sans y penser.</h1>
     <p class="hero-sub" data-i18n="hero.client.sub">Réservez un lavage en station partenaire ou à domicile, à Agadir, en moins de deux minutes depuis votre téléphone.</p>
-    <a class="hero-cta" href="#contact" data-i18n="hero.client.cta">Essayer Saffi →</a>
+    <a class="hero-cta" href="#contact" data-i18n="hero.client.cta">Essayer Washr →</a>
     <div class="hero-note" data-i18n="hero.client.note">DISPONIBLE EN PHASE PILOTE — AGADIR</div>
   </div>
 
   <div class="hero-seam"></div>
-  <div class="seam-mark"><span>S</span></div>
 
   <div class="hero-half hero-pro">
     <div class="hero-eyebrow eyebrow" data-i18n="hero.pro.eyebrow">Pour les prestataires</div>
@@ -333,7 +324,7 @@
 <section class="pilot">
   <div class="pilot-inner reveal">
     <div class="pilot-badge"><span class="pilot-dot"></span><span data-i18n="pilot.badge">PHASE PILOTE EN COURS</span></div>
-    <h2 data-i18n="pilot.title">On construit Saffi avec les premiers utilisateurs, pas pour eux.</h2>
+    <h2 data-i18n="pilot.title">On construit Washr avec les premiers utilisateurs, pas pour eux.</h2>
     <p data-i18n="pilot.text">Le projet est actuellement testé auprès d'un cercle restreint à Agadir. Chaque retour compte pour façonner un service qui répond vraiment aux besoins du terrain — automobilistes comme laveurs.</p>
   </div>
 </section>
@@ -370,17 +361,17 @@
 
 <!-- CTA FINAL -->
 <section class="final" id="contact">
-  <div class="final-mark reveal"><span>S</span></div>
+  <div class="final-mark reveal"><img src="washr-logo.png" alt="Washr"></div>
   <h2 class="reveal" data-i18n="final.title">Envie d'en faire partie ?</h2>
   <p class="reveal" data-i18n="final.text">Automobiliste curieux ou laveur intéressé — écrivez-nous directement, on répond personnellement à chaque message.</p>
   <div class="final-actions reveal">
-    <a class="btn btn-primary" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Saffi" target="_blank" rel="noopener"><span data-i18n="final.whatsapp">Nous écrire sur WhatsApp</span></a>
+    <a class="btn btn-primary" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20Washr" target="_blank" rel="noopener"><span data-i18n="final.whatsapp">Nous écrire sur WhatsApp</span></a>
     <a class="btn btn-ghost" href="#comment" data-i18n="final.review">Revoir le principe</a>
   </div>
 </section>
 
 <footer>
-  <div class="foot-brand">Saffi</div>
+  <div class="foot-brand">Washr</div>
   <div class="foot-note" data-i18n="footer.note">LE LAVAGE AUTO, EN DEUX TAPES — AGADIR, MAROC</div>
 </footer>
 
@@ -391,7 +382,7 @@ var SAFFI_I18N = {
     "hero.client.eyebrow": "Pour les automobilistes",
     "hero.client.title": "Votre voiture,<br><em>propre</em> sans y penser.",
     "hero.client.sub": "Réservez un lavage en station partenaire ou à domicile, à Agadir, en moins de deux minutes depuis votre téléphone.",
-    "hero.client.cta": "Essayer Saffi →",
+    "hero.client.cta": "Essayer Washr →",
     "hero.client.note": "DISPONIBLE EN PHASE PILOTE — AGADIR",
     "hero.pro.eyebrow": "Pour les prestataires",
     "hero.pro.title": "Vos heures creuses,<br><em>rentabilisées</em>.",
@@ -411,7 +402,7 @@ var SAFFI_I18N = {
     "how.step3.title": "Sur place, simplement",
     "how.step3.desc": "Vous réglez directement le prestataire une fois le lavage terminé. Aucune surprise sur le prix.",
     "pilot.badge": "PHASE PILOTE EN COURS",
-    "pilot.title": "On construit Saffi avec les premiers utilisateurs, pas pour eux.",
+    "pilot.title": "On construit Washr avec les premiers utilisateurs, pas pour eux.",
     "pilot.text": "Le projet est actuellement testé auprès d'un cercle restreint à Agadir. Chaque retour compte pour façonner un service qui répond vraiment aux besoins du terrain — automobilistes comme laveurs.",
     "pricing.eyebrow": "Formules indicatives",
     "pricing.title": "Des prix clairs, sans surprise",
@@ -430,7 +421,7 @@ var SAFFI_I18N = {
     "hero.client.eyebrow": "For drivers",
     "hero.client.title": "Your car,<br><em>clean</em> without the hassle.",
     "hero.client.sub": "Book a wash at a partner station or at home, in Agadir, in under two minutes from your phone.",
-    "hero.client.cta": "Try Saffi →",
+    "hero.client.cta": "Try Washr →",
     "hero.client.note": "AVAILABLE IN PILOT PHASE — AGADIR",
     "hero.pro.eyebrow": "For providers",
     "hero.pro.title": "Your downtime,<br><em>turned into income</em>.",
@@ -450,7 +441,7 @@ var SAFFI_I18N = {
     "how.step3.title": "On the spot, simply",
     "how.step3.desc": "You pay the provider directly once the wash is done. No surprises on price.",
     "pilot.badge": "PILOT PHASE UNDERWAY",
-    "pilot.title": "We're building Saffi with the first users, not for them.",
+    "pilot.title": "We're building Washr with the first users, not for them.",
     "pilot.text": "The project is currently being tested with a small circle in Agadir. Every piece of feedback shapes a service that truly fits the field — for drivers and washers alike.",
     "pricing.eyebrow": "Indicative pricing",
     "pricing.title": "Clear prices, no surprises",
@@ -469,7 +460,7 @@ var SAFFI_I18N = {
     "hero.client.eyebrow": "للسائقين",
     "hero.client.title": "سيارتك نظيفة،<br><em>دون عناء</em>.",
     "hero.client.sub": "احجز عملية غسيل في محطة شريكة أو في منزلك، بأكادير، في أقل من دقيقتين من هاتفك.",
-    "hero.client.cta": "← جرّب Saffi",
+    "hero.client.cta": "← جرّب Washr",
     "hero.client.note": "متوفر في المرحلة التجريبية — أكادير",
     "hero.pro.eyebrow": "لمقدمي الخدمة",
     "hero.pro.title": "أوقات فراغك،<br><em>مصدر دخل</em>.",
@@ -489,7 +480,7 @@ var SAFFI_I18N = {
     "how.step3.title": "في عين المكان، ببساطة",
     "how.step3.desc": "تدفع لمقدم الخدمة مباشرة بعد انتهاء الغسيل. لا مفاجآت في السعر.",
     "pilot.badge": "المرحلة التجريبية جارية",
-    "pilot.title": "نبني Saffi مع أوائل المستخدمين، لا من أجلهم فقط.",
+    "pilot.title": "نبني Washr مع أوائل المستخدمين، لا من أجلهم فقط.",
     "pilot.text": "يُختبر المشروع حالياً مع مجموعة محدودة في أكادير. كل ملاحظة تساهم في بناء خدمة تلبي فعلاً احتياجات الميدان — للسائقين ومقدمي الخدمة على حد سواء.",
     "pricing.eyebrow": "أسعار إرشادية",
     "pricing.title": "أسعار واضحة، بلا مفاجآت",
@@ -508,7 +499,7 @@ var SAFFI_I18N = {
     "hero.client.eyebrow": "للي عندهم طوموبيل",
     "hero.client.title": "الطوموبيل ديالك،<br><em>نقية</em> بلا ما تقلق.",
     "hero.client.sub": "احجز غسيل فمحطة شريكة ولا فدارك، فأكادير، فأقل من جوج دقايق من التيليفون ديالك.",
-    "hero.client.cta": "← جرب Saffi",
+    "hero.client.cta": "← جرب Washr",
     "hero.client.note": "متوفر فمرحلة التجربة — أكادير",
     "hero.pro.eyebrow": "للمهنيين ديال الغسيل",
     "hero.pro.title": "الوقت الفارغ ديالك،<br><em>ربح فيه</em>.",
@@ -528,7 +519,7 @@ var SAFFI_I18N = {
     "how.step3.title": "فعين المكان، بسيط",
     "how.step3.desc": "تخلص المهني مباشرة من بعد ما يكمل الغسيل. بلا مفاجآت فالتمن.",
     "pilot.badge": "مرحلة التجربة جارية",
-    "pilot.title": "كنبنيو Saffi مع أول المستخدمين، ماشي غيرليهم.",
+    "pilot.title": "كنبنيو Washr مع أول المستخدمين، ماشي غيرليهم.",
     "pilot.text": "المشروع كيتجرب دابا مع مجموعة صغيرة فأكادير. كل رأي كيهمنا باش نبنيو خدمة كتجاوب بصح على حاجيات الميدان — السائقين والمهنيين بجوج.",
     "pricing.eyebrow": "الأتمنة",
     "pricing.title": "أتمنة واضحة، بلا مفاجآت",
@@ -601,18 +592,12 @@ document.querySelectorAll('.lang-btn').forEach(function(btn){
   var tl = anime.timeline({ easing: 'easeOutExpo' });
 
   tl.add({
-    targets: '.seam-mark',
-    opacity: [0, 1],
-    scale: [0.6, 1],
-    duration: 620
-  })
-  .add({
     targets: '.hero-client .hero-eyebrow, .hero-client .hero-title, .hero-client .hero-sub, .hero-client .hero-cta, .hero-client .hero-note',
     opacity: [0, 1],
     translateY: [26, 0],
     duration: 680,
     delay: anime.stagger(85)
-  }, '-=420')
+  })
   .add({
     targets: '.hero-pro .hero-eyebrow, .hero-pro .hero-title, .hero-pro .hero-sub, .hero-pro .hero-cta, .hero-pro .hero-note',
     opacity: [0, 1],
